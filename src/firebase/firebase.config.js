@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCPF5QqytaMk7lxqsRPsQqfh6kgC3VYzSs",
-  authDomain: "shutter-skills-school-client.firebaseapp.com",
-  projectId: "shutter-skills-school-client",
-  storageBucket: "shutter-skills-school-client.appspot.com",
-  messagingSenderId: "322276476214",
-  appId: "1:322276476214:web:35896c30235f203e6a5f97"
+  apiKey:import.meta.env.VITE_apiKey ,
+  authDomain:import.meta.env.VITE_authDomain ,
+  projectId:import.meta.env.VITE_projectId ,
+  storageBucket:import.meta.env.VITE_storageBucket ,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId ,
+  appId:import.meta.env.VITE_appId 
 };
 
 // Initialize Firebase
