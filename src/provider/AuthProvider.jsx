@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
-import app from './../firebase/firebase.config';
+import { app } from './../firebase/firebase.config';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
