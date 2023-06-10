@@ -99,7 +99,7 @@ const NavBar = () => {
             {/* Logged User Info */}
             {user?.email ? (
               <div className="flex items-center">
-                <button className="btn border-none" onClick={handleLogout}>
+                <button className="btn btn-primary border-none" onClick={handleLogout}>
                   Logout
                 </button>
                 <img
@@ -111,7 +111,7 @@ const NavBar = () => {
               </div>
             ) : (
               <Link to="/login">
-                <li className="btn bg-gray-400 border-none">Login</li>
+                <li className="btn btn-primary border-none">Login</li>
               </Link>
             )}
           </div>

@@ -3,16 +3,18 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from './../../provider/AuthProvider';
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 const Register = () => {
 
   const { registerUser } = useContext(AuthContext);
 
-
+  
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
 
   const handleRegistration = (event) => {
@@ -50,7 +52,14 @@ const Register = () => {
     
 
 
-    
+      // Show and Hide Password
+  const handlePasswordChange1 = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
     
 
   return (
@@ -110,24 +119,29 @@ const Register = () => {
               </div>
             </div>
             <div className="mt-4">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700 undefined"
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
+            <div className="relative">
+              <input
+                onChange={handlePasswordChange1}
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter your password"
+                required
+                className="block w-full px-4 py-2 mt-2 text-gray-600 bg-white border rounded-md focus:border-gray-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              />
+              <span
+                className="password-toggle absolute top-1/2 transform -translate-y-1/2 right-4 cursor-pointer"
+                onClick={handleTogglePassword}
               >
-                Password
-              </label>
-              <div className="flex flex-col items-start">
-                <input
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter your password"
-                  type="password"
-                  name="password"
-                  // onChange={handlePasswordChange}
-                  required
-                  className="block w-full px-4 py-2 mt-2 text-gray-600 bg-white border rounded-md focus:border-gray-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                />
-              </div>
+                {showPassword ? <AiFillEyeInvisible/> : <AiFillEye/> }
+              </span>
             </div>
+          </div>
             <div className="mt-4">
               <label
                 htmlFor="photo_url"
