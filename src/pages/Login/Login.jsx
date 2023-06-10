@@ -2,16 +2,19 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import { app } from './../../firebase/firebase.config';
-import { AuthContext } from './../../provider/AuthProvider';
-
-
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+} from "firebase/auth";
+import { app } from "./../../firebase/firebase.config";
+import { AuthContext } from "./../../provider/AuthProvider";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 const Login = () => {
-  
   const auth = getAuth(app);
- 
+
   // Google Popup Login
   const [user, setUser] = useState(null);
   const googleProvider = new GoogleAuthProvider();
@@ -21,7 +24,6 @@ const Login = () => {
 
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        
         const loggedInUser = result.user;
         console.log(loggedInUser);
         setUser(loggedInUser);
@@ -32,39 +34,35 @@ const Login = () => {
         const errorMessage = error.message;
         const email = error.customData.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
-        
       });
   };
 
-
   // GitHub Login
   const githubProvider = new GithubAuthProvider();
-  
+
   const handleGitHubSignIn = () => {
     signInWithPopup(auth, githubProvider)
-  .then((result) => {
-    // The signed-in user info.
-    const loggedUser = result.user;
-    console.log(loggedUser);
-    setUser(loggedUser)
-    
-  })
+      .then((result) => {
+        // The signed-in user info.
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setUser(loggedUser);
+      })
       .catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GithubAuthProvider.credentialFromError(error);
-    
-  });
-  }
-
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GithubAuthProvider.credentialFromError(error);
+      });
+  };
 
   // Email & Password Login
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const { loginUser } = useContext(AuthContext);
 
@@ -75,7 +73,6 @@ const Login = () => {
       loginUser(email, password)
         .then((result) => {
           console.log(result.user);
-          
         })
         .catch((error) => {
           console.log(error.message);
@@ -83,8 +80,14 @@ const Login = () => {
     }
   };
 
-  
-  
+  // Show and Hide Password
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -116,20 +119,29 @@ const Login = () => {
               className="block w-full px-4 py-2 mt-2 text-gray-500 bg-white border rounded-md focus:border-gray-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
-          <div className="mb-2">
+          <div className="mt-4">
             <label
-              // eslint-disable-next-line react/no-unknown-property
-              for="password"
-              className="block text-sm font-semibold text-gray-800"
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
             >
               Password
             </label>
-            <input
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              placeholder="Enter Your Password"
-              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            />
+            <div className="relative">
+              <input
+                onChange={handlePasswordChange}
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter your password"
+                required
+                className="block w-full px-4 py-2 mt-2 text-gray-600 bg-white border rounded-md focus:border-gray-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              />
+              <span
+                className="password-toggle absolute top-1/2 transform -translate-y-1/2 right-4 cursor-pointer"
+                onClick={handleTogglePassword}
+              >
+                {showPassword ? <AiFillEyeInvisible/> : <AiFillEye/> }
+              </span>
+            </div>
           </div>
           <a href="#" className="text-xs text-gray-600 hover:underline">
             Forget Password?
@@ -147,7 +159,6 @@ const Login = () => {
           <div className="absolute px-5 bg-white">Or</div>
         </div>
         <div className="flex mt-4 gap-x-2">
-
           {/* Google */}
           <button
             onClick={handleGoogleSignIn}
@@ -166,7 +177,8 @@ const Login = () => {
           {/* Github */}
           <button
             onClick={handleGitHubSignIn}
-            className="flex items-center justify-center w-full p-2 border border-gray-500 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-gray-600">
+            className="flex items-center justify-center w-full p-2 border border-gray-500 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-gray-600"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"

@@ -46,7 +46,12 @@ const Register = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // TODO: handle form submission
-  };
+    };
+    
+
+
+    
+    
 
   return (
     <div className="m-20 ">
@@ -133,7 +138,7 @@ const Register = () => {
               <div className="flex flex-col items-start">
                 <input
                   onChange={(e) => setEmail(e.target.value)}
-                  type="text"
+                  type="url"
                   name="photo_url"
                   placeholder="Enter Photo URL"
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
