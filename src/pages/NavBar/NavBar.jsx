@@ -18,7 +18,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <div className="px-14 p-3 bg-gray-100">
+      <div className="px-14 bg-gray-100">
         <div className="navbar flex">
           <div className="navbar-start grid">
             <Link to="/" className=" font-bold">
