@@ -21,9 +21,8 @@ const NavBar = () => {
       <div className="px-14 p-3 bg-gray-100">
         <div className="navbar flex">
           <div className="navbar-start grid">
-            <img className="w-16" src="/public/lense.png" alt="" />
             <Link to="/" className=" font-bold">
-            Shutter Skills School
+              <img className="w-16" src="/public/lense.png" alt="" />
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
@@ -63,45 +62,34 @@ const NavBar = () => {
 
               <li>
                 <NavLink
-                  to="/addToy"
+                  to="/instructors"
                   className={({ isActive }) =>
                     isActive ? " text-gray-500 text-xl font-bold" : ""
                   }
                 >
-                  Add a Toy
+                  Instructors
                 </NavLink>
               </li>
 
               <li>
                 <NavLink
-                  to="/myToys"
+                  to="/classes"
                   className={({ isActive }) =>
                     isActive ? " text-gray-500 text-xl font-bold" : ""
                   }
                 >
-                  My Toys
+                  Classes
                 </NavLink>
               </li>
 
               <li>
                 <NavLink
-                  to="/allToys"
+                  to="/dashboard"
                   className={({ isActive }) =>
                     isActive ? " text-gray-500 text-xl font-bold" : ""
                   }
                 >
-                  All Toys
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to="/blogs"
-                  className={({ isActive }) =>
-                    isActive ? " text-gray-500 text-xl font-bold " : ""
-                  }
-                >
-                  Blogs
+                  Dashboard
                 </NavLink>
               </li>
             </ul>
@@ -123,7 +111,7 @@ const NavBar = () => {
               </div>
             ) : (
               <Link to="/login">
-                <li className="btn border-none">Login</li>
+                <li className="btn bg-gray-400 border-none">Login</li>
               </Link>
             )}
           </div>

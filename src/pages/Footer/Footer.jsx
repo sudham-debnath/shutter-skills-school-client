@@ -7,31 +7,33 @@ const Footer = () => {
     <div className="bg-gray-100 text-black pt-14 px-14 ">
       <div className="grid justify-items-center lg:grid-cols-5 sm:grid-cols-1 gap-6 pb-5 text-black">
         <div>
+        <img className="w-16" src="/public/lense.png" alt="" />
           <h1 className="text-2xl font-bold">Shutter Skills School</h1>
-          <p className="my-5">
-            Toy's Universe is a haven for toy enthusiasts imagination in
+          {/* <p className="my-5">
+          Shutter Skills School is a haven for toy enthusiasts imagination in
             children of all ages.
-          </p>
+          </p> */}
+          
         </div>
         <div>
           <h1 className="text-2xl font-semibold">About Us</h1>
-          <p>About Our Toy</p>
-          <p>About Toy Cars</p>
-          <p>Latest Blogs</p>
-          <p>Best Selling Toys</p>
+          <p>About Our School</p>
+          <p>Best Instructors</p>
+          <p>Best Classes</p>
+          <p>Best Students</p>
         </div>
         <div>
           <h1 className="text-2xl font-semibold">Category</h1>
-          <p>Sports Car</p>
-          <p>Truck</p>
-          <p>Regular Car</p>
-          <p>Mini Fire Truck</p>
+          <p>Nature Photography</p>
+          <p>Wildlife Photography</p>
+          <p>Food Photography</p>
+          <p>Wedding Photography</p>
         </div>
         <div>
           <h1 className="text-2xl font-semibold">Support</h1>
           <p>Help Desk</p>
-          <p>Our Sales</p>
-          <p>Become our Partner</p>
+          <p>Support</p>
+          <p>Become Our Contributor</p>
           <p>Our Developers</p>
         </div>
         <div>

@@ -2,9 +2,12 @@
 import React from 'react';
 import Slider from './Slider';
 
+
+
 const Home = () => {
     return (
         <div>
+            {/* <PageTitle title="Toy's Universe | Home Page" /> */}
             <Slider></Slider>
         </div>
     );

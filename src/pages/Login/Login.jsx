@@ -1,10 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from './../../firebase/firebase.config';
+import { AuthContext } from './../../provider/AuthProvider';
+
 
 
 const Login = () => {
@@ -81,6 +82,9 @@ const Login = () => {
         });
     }
   };
+
+  
+  
 
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">

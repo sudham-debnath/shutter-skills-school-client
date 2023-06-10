@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 
-const Blogs = () => {
+
+const Admin = () => {
     return (
         <div>
-            <h1>This is Blogs</h1>
+            <h1>Admin Dashboard</h1>
         </div>
     );
 };
 
-export default Blogs;
+export default Admin;
