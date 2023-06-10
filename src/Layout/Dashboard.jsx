@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import Slider from './Slider';
 
-const Home = () => {
+const Dashboard = () => {
     return (
         <div>
-            <Slider></Slider>
+            
         </div>
     );
 };
 
-export default Home;
+export default Dashboard;

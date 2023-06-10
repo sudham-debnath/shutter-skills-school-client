@@ -6,16 +6,15 @@ import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home";
 import Blogs from "./../pages/Blogs/Blogs";
 import ErrorPage from "./../pages/ErrorPage/ErrorPage";
-import App from "../App";
 import PrivateRoute from "./PrivateRoute";
-
+import Main from "../Layout/Main";
 
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: <Main></Main>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
@@ -30,12 +29,12 @@ const router = createBrowserRouter([
         path: "register",
         element: <Register></Register>,
       },
+      // {
+      //   path: "blogs",
+      //   element: <Blogs></Blogs>,
+      // },
       {
         path: "blogs",
-        element: <Blogs></Blogs>,
-      },
-      {
-        path: "myToys",
         element: (
           <PrivateRoute>
             <Blogs></Blogs>

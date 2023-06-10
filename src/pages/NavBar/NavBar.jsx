@@ -18,10 +18,11 @@ const NavBar = () => {
 
   return (
     <div>
-      <div className="px-14 py-5 bg-gray-100">
+      <div className="px-14 p-3 bg-gray-100">
         <div className="navbar flex">
-          <div className="navbar-start">
-            <Link to="/" className="text-3xl font-bold">
+          <div className="navbar-start grid">
+            <img className="w-16" src="/public/lense.png" alt="" />
+            <Link to="/" className=" font-bold">
             Shutter Skills School
             </Link>
           </div>
