@@ -21,9 +21,7 @@ const NavBar = () => {
       <div className="px-14 bg-gray-100">
         <div className="navbar flex">
           <div className="navbar-start grid">
-            <Link to="/" className=" font-bold">
-              <img className="w-16" src="/public/lense.png" alt="" />
-            </Link>
+          <img className="w-16" src="/public/lense.png" alt="logo" />
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
