@@ -160,16 +160,14 @@ const Home = () => {
         </div>
       </section>
 
-        {/* Popular Classes Section */}
+      {/* Popular Classes Section */}
       <div className="flex justify-center items-center">
         <div className="2xl:mx-auto 2xl:container lg:px-20 lg:py-16 md:py-12 md:px-6 py-9 px-4 w-96 sm:w-auto">
           <div
             role="main"
             className="flex flex-col items-center justify-center"
           >
-            <h1 className="text-3xl font-bold">
-            Popular Classes
-            </h1>
+            <h1 className="text-3xl font-bold">Popular Classes</h1>
             <p className="text-base leading-normal text-center text-gray-600 dark:text-white mt-4 lg:w-1/2 md:w-10/12 w-11/12">
               If you're looking for random paragraphs, you've come to the right
               place. When a random word or a random sentence isn't quite enough
@@ -460,13 +458,23 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </div>
+
+          
+      {/* Photo of the Week */}
+      <div className="hero my-10">
+        <div className="hero-content flex-col lg:flex-row">
+          <img
+            src="https://i.ibb.co/WfnFzKy/hands-taking-slices-italian-cuisine-pizza.png"
+            className="max-w-sm rounded-lg shadow-xl"
+          />
+          <div>
+            <h1 className="text-5xl font-bold">Photo of the Week</h1>
+            <p className="py-6 font-bold">This photograph has taken by Mr.Harry</p>
+            <button className="btn btn-neutral">View Details</button>
           </div>
-          
-
-
-
-
-          
+        </div>
+      </div>
     </div>
   );
 };
