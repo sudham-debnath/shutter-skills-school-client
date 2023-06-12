@@ -3,6 +3,8 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { GrUserAdmin } from "react-icons/gr";
 import { FaChalkboardTeacher, FaUser } from "react-icons/fa";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
+import { FiUsers } from "react-icons/fi";
 
 const Dashboard = () => {
   const isAdmin = true;
@@ -29,6 +31,11 @@ const Dashboard = () => {
 
           {isAdmin ? (
             <>
+              <li>
+                <Link className="font-bold" to="/dashboard">
+                  <MdOutlineSpaceDashboard/> Back to Dashboard
+                </Link>
+              </li>
              <li>
                 <Link className="font-bold" to="/dashboard/admin">
                   <GrUserAdmin></GrUserAdmin> Admin Dashboard
@@ -47,7 +54,7 @@ const Dashboard = () => {
               </li>
               <li>
                 <Link className="font-bold" to="/dashboard/all-users">
-                  <FaUser /> All Users
+                  <FiUsers /> All Users
                 </Link>
               </li>
             </>

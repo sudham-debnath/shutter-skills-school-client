@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import PopularClasses from '../Home/PopularClasses';
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
@@ -35,6 +36,7 @@ const Classes = () => {
 
   return (
     <div>
+      <PopularClasses></PopularClasses>
       {classes.map(cls => (
         <div key={cls.id} className={cls.availableSeats === 0 ? 'class-card red' : 'class-card'}>
           <img src={cls.image} alt={cls.name} />
