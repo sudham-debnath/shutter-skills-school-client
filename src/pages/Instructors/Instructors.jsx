@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import PopularInstructors from '../Home/PopularInstructors';
 
 const Instructors = () => {
     return (
         <div>
-            Instructors
+            <PopularInstructors></PopularInstructors>
         </div>
     );
 };

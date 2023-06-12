@@ -38,19 +38,19 @@ const router = createBrowserRouter([
         path: "instructors",
         element: <Instructors></Instructors>,
       },
-      {
-        path: "classes",
-        element: <Classes></Classes>,
-      },
+      // {
+      //   path: "classes",
+      //   element: <Classes></Classes>,
+      // },
       {
         path: "dashboard",
         element: <Dashboard></Dashboard>,
       },
       {
-        path: "blogs",
+        path: "classes",
         element: (
           <PrivateRoute>
-            <Dashboard></Dashboard>
+           <Classes></Classes>
           </PrivateRoute>
         ),
       },

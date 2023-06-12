@@ -8,7 +8,7 @@ const Footer = () => {
     <section className="bg-gray-100">
       <div className="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
       <div className="flex items-center justify-center">
-        <img className="w-16" src="/public/lense.png" alt="" />
+        <img className="w-16" src="https://i.ibb.co/SykV0DJ/lense.png" alt="" />
           <h1 className="text-2xl font-bold">Shutter Skills School</h1>
         </div>
         <nav className="flex flex-wrap justify-center -mx-5 -my-2">

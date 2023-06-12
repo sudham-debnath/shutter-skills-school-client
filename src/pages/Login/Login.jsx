@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   GithubAuthProvider,
   GoogleAuthProvider,
@@ -11,13 +11,22 @@ import {
 import { app } from "./../../firebase/firebase.config";
 import { AuthContext } from "./../../provider/AuthProvider";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import Swal from "sweetalert2";
+
+
+
 
 const Login = () => {
   const auth = getAuth(app);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const form = location.state?.form?.pathname || "/";
 
   // Google Popup Login
   const [user, setUser] = useState(null);
   const googleProvider = new GoogleAuthProvider();
+
 
   const handleGoogleSignIn = () => {
     // console.log("google login");
@@ -27,6 +36,12 @@ const Login = () => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
         setUser(loggedInUser);
+        Swal.fire(
+          'Login Successful!',
+          'Click OK button!',
+          'success'
+        )
+        navigate(form,{replace:true});
       })
       .catch((error) => {
         // Handle Errors here.
@@ -73,6 +88,11 @@ const Login = () => {
       loginUser(email, password)
         .then((result) => {
           console.log(result.user);
+          Swal.fire(
+            'Login Successful!',
+            'Click OK button!',
+            'success'
+          )
         })
         .catch((error) => {
           console.log(error.message);

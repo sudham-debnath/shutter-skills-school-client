@@ -141,7 +141,34 @@ const Register = () => {
                 {showPassword ? <AiFillEyeInvisible/> : <AiFillEye/> }
               </span>
             </div>
+            </div>
+            
+
+            <div className="mt-4">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Confirm Password
+            </label>
+            <div className="relative">
+              <input
+                onChange={handlePasswordChange1}
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Confirm Your Password"
+                required
+                className="block w-full px-4 py-2 mt-2 text-gray-600 bg-white border rounded-md focus:border-gray-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              />
+              <span
+                className="password-toggle absolute top-1/2 transform -translate-y-1/2 right-4 cursor-pointer"
+                onClick={handleTogglePassword}
+              >
+                {showPassword ? <AiFillEyeInvisible/> : <AiFillEye/> }
+              </span>
+            </div>
           </div>
+
             <div className="mt-4">
               <label
                 htmlFor="photo_url"
