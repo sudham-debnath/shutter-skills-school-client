@@ -29,19 +29,41 @@ const Login = () => {
 
 
   const handleGoogleSignIn = () => {
-    // console.log("google login");
-
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
         setUser(loggedInUser);
-        Swal.fire(
-          'Login Successful!',
-          'Click OK button!',
-          'success'
-        )
-        navigate(form,{replace:true});
+  
+        const saveUser = (user) => {
+          // Access and use the user data here
+          const name = user.displayName;
+          const email = user.email;
+  
+          // Make a POST request to save the user data
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify({ name, email }) // Pass the user data in the request body
+          })
+            .then(response => response.json())
+            .then(() => {
+              Swal.fire(
+                'Login Successful!',
+                'Click OK button!',
+                'success'
+              )
+              navigate(form, { replace: true });
+            })
+            .catch(error => {
+              console.log("Error saving user data:", error);
+            });
+        };
+  
+        // Call the saveUser function with the loggedInUser data
+        saveUser(loggedInUser);
       })
       .catch((error) => {
         // Handle Errors here.
@@ -51,6 +73,7 @@ const Login = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
       });
   };
+  
 
   // GitHub Login
   const githubProvider = new GithubAuthProvider();

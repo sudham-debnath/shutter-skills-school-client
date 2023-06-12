@@ -1,27 +1,23 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
-import { AuthContext } from '../../provider/AuthProvider';
+import React, { useState, useEffect } from 'react';
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
-  const { user } = useContext(AuthContext);
+
+  console.log(classes);
 
   useEffect(() => {
-    // Fetch classes data from the server
-    axios
-      .get('http://localhost:5000/classes')
-      .then((response) => {
-        setClasses(response.data);
+    fetch('http://localhost:5000/add-class')
+      .then(response => response.json())
+      .then(data => {
+        setClasses(data.classes);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+    
   }, []);
 
   const handleSelect = (classId) => {
-    const isLoggedIn = user !== null; // Check if the user is logged in
-    const isAdminOrInstructor = user?.isAdminOrInstructor; // Check if the user is an admin or instructor
+    const isLoggedIn = true; // Assuming user is logged in
+    const isAdminOrInstructor = true; // Assuming user is logged in as admin or instructor
 
     if (!isLoggedIn) {
       alert('Please log in before selecting the course.');
@@ -38,8 +34,8 @@ const Classes = () => {
   };
 
   return (
-    <div className='border border-gray-950 w-60 m-6'>
-      {classes.map((cls) => (
+    <div>
+      {classes.map(cls => (
         <div key={cls.id} className={cls.availableSeats === 0 ? 'class-card red' : 'class-card'}>
           <img src={cls.image} alt={cls.name} />
           <h3>{cls.name}</h3>
@@ -48,14 +44,9 @@ const Classes = () => {
           <p>Price: ${cls.price}</p>
           <button
             onClick={() => handleSelect(cls.id)}
-            disabled={cls.availableSeats === 0}
+            disabled={cls.availableSeats === 0 }
           >
-            <select className="select select-info w-full max-w-xs">
-  <option disabled selected>Select</option>
-  <option>Admin</option>
-  <option>Instructor</option>
-  
-</select>
+            Select
           </button>
         </div>
       ))}

@@ -13,6 +13,7 @@ import Instructors from './../pages/Instructors/Instructors';
 import Classes from "../pages/Classes/Classes";
 import Instructor from "../pages/Dashboard/Instructor";
 import Student from "../pages/Dashboard/Student";
+import AllUsers from "../pages/Dashboard/AllUsers";
 
 
 
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: "student",
         element:<Student></Student>
+      },
+      {
+        path: "all-users",
+        element:<AllUsers></AllUsers>
       },
     ]
   }
